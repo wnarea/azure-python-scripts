@@ -135,6 +135,7 @@ elita_apim_prod = [
 
 elita_apim_prod_dr = [
   {
+    "enabled": True,
     "name": "apim-uk-prod",
     "resourceGroup": "rgapim-prod",
     "location": "ukwest",
@@ -150,6 +151,7 @@ elita_apim_prod_dr = [
     }
   },
   {
+    "enabled": True,
     "name": "apim-uk-prod",
     "resourceGroup": "rgapim-prod",
     "location": "ukwest",
@@ -165,6 +167,7 @@ elita_apim_prod_dr = [
     }
   },
   {
+    "enabled": False,
     "name": "apim-jp-prod02",
     "resourceGroup": "rgapim-prod",
     "location": "japanwest",
@@ -180,6 +183,7 @@ elita_apim_prod_dr = [
     }
   },
   {
+    "enabled": True,
     "name": "apim-au-prod02",
     "resourceGroup": "rgapim-prod",
     "location": "australiaeast",

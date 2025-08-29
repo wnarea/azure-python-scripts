@@ -26,6 +26,9 @@ permissions = Permissions(
 
 # Define the REST API endpoint and headers
 for resource in elita_resources.elita_apim_prod_dr:
+    enabled = resource["enabled"]
+    if enabled == False:
+        continue
     subscription_id = resource["subscriptionId"]
     resource_group_name = resource["resourceGroup"]
     service_name = resource["name"]
