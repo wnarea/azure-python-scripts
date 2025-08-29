@@ -33,7 +33,7 @@ for resource in elita_resources.elita_apim_prod_dr:
     resource_group_name = resource["resourceGroup"]
     service_name = resource["name"]
     region = resource["region"]
-    is_disater_recovery = resource["isDr"]
+    is_disater_recovery = resource["isDR"]
     certificate_id = "elita-function-apps"
     kv_subscription_id = resource["elita"]["subscriptionId"]
     kv_resource_group_name = resource["elita"]["resourceGroup"]
