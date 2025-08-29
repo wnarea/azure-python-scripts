@@ -10,7 +10,7 @@ from azure.mgmt.keyvault.models import AccessPolicyEntry, Permissions
 credential = DefaultAzureCredential()
 token = credential.get_token("https://management.azure.com/.default").token
 api_version = "2020-06-01-preview"
-env = "test"
+env = "prod"
 
 headers = {
     "Content-Type": "application/json",
@@ -49,8 +49,9 @@ for resource in elita_resources.elita_apim_prod_dr:
       # print(f"{response.json()}")
 
       # Initialize KeyVaultManagementClient
+      disaster_recovery_sufix = '' if is_disater_recovery else '-dr'
       keyvault_client = KeyVaultManagementClient(credential, kv_subscription_id)
-      key_vault_name = f"kv-elita-{env}-{region}"
+      key_vault_name = f"kv-elita-{env}-{region}{disaster_recovery_sufix}"
       
       print(f"Resource Group:{resource_group_name}, KeyVault:{key_vault_name}")
       key_vault = keyvault_client.vaults.get(kv_resource_group_name, key_vault_name)
@@ -75,12 +76,12 @@ for resource in elita_resources.elita_apim_prod_dr:
 
       print(f"Access policy added to Key Vault '{key_vault_name}'.")
       
-      disaster_recovery_sufix = '' if is_disater_recovery else '-dr'
+      
 
       json_body = {
         "properties": {
           "keyVault": {
-            "secretIdentifier" :f"https://kv-elita-{env}-{region}{disaster_recovery_sufix}.vault.azure.net/secrets/elita-function-apps"
+            "secretIdentifier" :f"https://{key_vault_name}.vault.azure.net/secrets/elita-function-apps"
           }
         }
       }
