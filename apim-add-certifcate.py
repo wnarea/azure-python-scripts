@@ -12,8 +12,6 @@ token = credential.get_token("https://management.azure.com/.default").token
 api_version = "2020-06-01-preview"
 env = "test"
 
-kv_subscription_id = '71d00b98-02b3-47df-961f-b2516cbb33ca'
-
 headers = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {token}"
@@ -27,11 +25,12 @@ permissions = Permissions(
 )
 
 # Define the REST API endpoint and headers
-for resource in elita_resources.elita_apim_test:
+for resource in elita_resources.elita_apim_prod_dr:
     subscription_id = resource["subscriptionId"]
     resource_group_name = resource["resourceGroup"]
     service_name = resource["name"]
     region = resource["region"]
+    is_disater_recovery = resource["isDr"]
     certificate_id = "elita-function-apps"
     kv_subscription_id = resource["elita"]["subscriptionId"]
     kv_resource_group_name = resource["elita"]["resourceGroup"]
@@ -73,10 +72,12 @@ for resource in elita_resources.elita_apim_test:
 
       print(f"Access policy added to Key Vault '{key_vault_name}'.")
       
+      disaster_recovery_sufix = '' if is_disater_recovery else '-dr'
+
       json_body = {
         "properties": {
           "keyVault": {
-            "secretIdentifier" :f"https://kv-elita-{env}-{region}.vault.azure.net/secrets/elita-function-apps"
+            "secretIdentifier" :f"https://kv-elita-{env}-{region}{disaster_recovery_sufix}.vault.azure.net/secrets/elita-function-apps"
           }
         }
       }

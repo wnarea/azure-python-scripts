@@ -142,6 +142,7 @@ elita_apim_prod_dr = [
     "subscriptionName": "Assurant Spoke UKWest SharedProd",
     "costCenter": 8560461,
     "region": "eu",    
+    "isDR": True,
     "elita": {
       "resourceGroup": "RGElitaProd",
       "subscriptionId": "1b730a1e-a5f0-416b-9508-f6c5d890cb16",
@@ -155,7 +156,8 @@ elita_apim_prod_dr = [
     "subscriptionId": "1b730a1e-a5f0-416b-9508-f6c5d890cb16",
     "subscriptionName": "Assurant Spoke UKWest SharedProd",
     "costCenter": 8560461,
-    "region": "de",    
+    "region": "de",
+    "isDR": True,
     "elita": {
       "resourceGroup": "RGElitaProd",
       "subscriptionId": "1b730a1e-a5f0-416b-9508-f6c5d890cb16",
@@ -169,7 +171,8 @@ elita_apim_prod_dr = [
     "subscriptionId": "07349c3c-6350-4d3b-b4a9-d84dbf009d05",
     "subscriptionName": "Assurant Spoke JapanWest SharedProd",
     "costCenter": 8560461,
-    "region": "jp",    
+    "region": "jp",
+    "isDR": True,    
     "elita": {
       "resourceGroup": "RGElitaProd",
       "subscriptionId": "07349c3c-6350-4d3b-b4a9-d84dbf009d05",
@@ -183,7 +186,8 @@ elita_apim_prod_dr = [
     "subscriptionId": "59e584f7-c9aa-450c-8e89-45ab1741e922",
     "subscriptionName": "Assurant Spoke AustraliaEast SharedProd",
     "costCenter": 8560461,
-    "region": "ap",    
+    "region": "ap",
+    "isDR": True,    
     "elita": {
       "resourceGroup": "RGElitaProd",
       "subscriptionId": "59e584f7-c9aa-450c-8e89-45ab1741e922",
