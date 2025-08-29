@@ -49,7 +49,7 @@ for resource in elita_resources.elita_apim_prod_dr:
       # print(f"{response.json()}")
 
       # Initialize KeyVaultManagementClient
-      disaster_recovery_sufix = '' if is_disater_recovery else '-dr'
+      disaster_recovery_sufix = '-dr' if is_disater_recovery else ''
       keyvault_client = KeyVaultManagementClient(credential, kv_subscription_id)
       key_vault_name = f"kv-elita-{env}-{region}{disaster_recovery_sufix}"
       
